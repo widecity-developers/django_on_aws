@@ -143,12 +143,13 @@ sudo nginx -t
 sudo systemctl restart nginx
 ```
 
-## Nginx Is Displaying a 502 Bad Gateway Error Instead of the Django Application
+# Got error
+
+#### Nginx Is Displaying a 502 Bad Gateway Error Instead of the Django Application
 ```
 sudo tail -F /var/log/nginx/error.log
 ```
 
-# Got error
 #### connect() to unix:/home/ubuntu/myproject/myproject.sock failed (2: No such file or directory)
 
 ###### This indicates that Nginx was unable to find the myproject.sock file at the given location. You should compare the proxy_pass location defined within /etc/nginx/sites-available/myproject file to the actual location of the myproject.sock file generated in your project directory.
