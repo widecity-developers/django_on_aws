@@ -7,7 +7,9 @@ Django is a powerful web framework that can help you get your Python application
 ## Install the Packages from the Ubuntu Repositories
 To begin the process, we’ll download and install all of the items we need from the Ubuntu repositories. We will use the Python package manager pip to install additional components a bit later.
 
-We need to update the local apt package index and then download and install the packages. 
+### First get your ec2 ready to start, then go with the below procedure if you have any dought please contact at 9946658045
+
+We need to update the local apt package first. 
 ```
 sudo apt-get update
 ```
@@ -15,6 +17,14 @@ Now install the necessary packages, use python3 if you are using it. Its very ea
 ```
 sudo apt-get install python-pip python-dev libpq-dev nginx
 ```
+For Making it interest while doing lets see how your nginx webserver looks like. For that type
+```
+sudo systemctl start nginx
+```
+That's it. Now go to your instance ip and see your nginx hosted site.
+
+![Alt text](https://rdr-it.com/wp-content/uploads/2020/09/ubuntu-nginx-php-mariadb-010.png)
+
 Install virtualenv, i hope use guys know why we need virtual env in python projects
 ```
 sudo -H pip3 install virtualenv
