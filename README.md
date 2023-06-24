@@ -56,14 +56,22 @@ pip install -r requirements.txt
 ```
 With your virtual environment active, install Django, Gunicorn
 ```
-pip install django gunicorn
+pip install gunicorn
 ```
-## Create a Gunicorn systemd Service File
+###### Try to run your project localy on aws using the command
+```
+python3 manage.py runserver
+```
+#### If any errors occur
+###### Install the neccassary packages according to it and try to run the script again until it works. contact 9946658045 if you couldnt solve it.
+
+## Lets move forward, Create a Gunicorn systemd Service File
 Create and open a systemd service file for Gunicorn with sudo privileges in your text editor
 ```
 sudo nano /etc/systemd/system/gunicorn.service
 ```
-Finally, we’ll add an [Install] section. This will tell systemd what to link this service to if we enable it to start at boot. We want this service to start when the regular multi-user system is up and running
+Finally, we’ll add an [Install] section. This will tell systemd what to link this service to if we enable it to start at boot. We want this service to start when the regular multi-user system is up and running.
+Replace the path according to your project, it is not hard as it seems. just go through it. you will find it simple.
 
 ```
 [Unit]
