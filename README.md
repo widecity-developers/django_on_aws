@@ -155,7 +155,7 @@ sudo tail -F /var/log/nginx/error.log
 
 ###### If you cannot find a myproject.sock file within your project directory, it generally means that the gunicorn process was unable to create it. Go back to the section on checking for the Gunicorn socket file to step through the troubleshooting steps for Gunicorn.
 
-## connect() to unix:/home/ubuntu/myproject/myproject.sock failed (13: Permission denied)
+#### connect() to unix:/home/ubuntu/myproject/myproject.sock failed (13: Permission denied)
 ```
 namei -nom /home/ubuntu/myproject/myproject.sock
 ```
