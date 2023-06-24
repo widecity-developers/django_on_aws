@@ -4,10 +4,10 @@
 
 ![Alt text](https://www.projecthosts.com/wp-content/uploads/2022/10/AWS_Header-1-1024x429.png)
 
+#### First get your ec2 ready to start, then go with the below procedure if you have any dought please contact at 9946658045
+
 #### Install the Packages from the Ubuntu Repositories
 ###### To begin the process, we’ll download and install all of the items we need from the Ubuntu repositories. We will use the Python package manager pip to install additional components a bit later.
-
-#### First get your ec2 ready to start, then go with the below procedure if you have any dought please contact at 9946658045
 
 ###### We need to update the local apt package first. 
 ```
@@ -24,7 +24,23 @@ sudo systemctl start nginx
 ###### That's it. Now go to your instance ip and see your nginx hosted site.
 
 ![Alt text](https://rdr-it.com/wp-content/uploads/2020/09/ubuntu-nginx-php-mariadb-010.png)
-
+###### if you are happy with the results lets go
+###### Create a folder for your project which we will call as the project folder and change your directory to it, that sound nice.
+```
+sudo mkdir projectfolder_name
+```
+```
+cd projectfolder_name
+```
+#####  lets get your github code to here. pretty cool right. 
+!important , make sure you have an requirements.txt file, which can make these process much faster. if you don't have that just go to your local project folder and type,
+```
+pip freeze > requirement.txt
+```
+#### Lets clone
+```
+git clone https://github.com/account_name/repo
+```
 ###### Install virtualenv, i hope use guys know why we need virtual env in python projects
 ```
 sudo -H pip3 install virtualenv
@@ -32,6 +48,10 @@ sudo -H pip3 install virtualenv
 ###### Before we install our project’s Python requirements, we need to activate the virtual environment. You can do that by typing
 ```
 source myprojectenv/bin/activate
+```
+#### Install the requirements.txt using the comment
+```
+pip install -r requirements.txt
 ```
 With your virtual environment active, install Django, Gunicorn
 ```
@@ -50,10 +70,10 @@ Description=gunicorn daemon
 After=network.target
 
 [Service]
-User=sammy
+User=ubuntu
 Group=www-data
-WorkingDirectory=/home/sammy/myproject
-ExecStart=/home/sammy/myproject/myprojectenv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/sammy/myproject/myproject.sock myproject.wsgi:application
+WorkingDirectory=/home/ubuntu/myproject
+ExecStart=/home/ubuntu/myproject/myprojectenv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ubuntu/myproject/myproject.sock myproject.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
@@ -84,12 +104,12 @@ server {
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
-        root /home/sammy/myproject;
+        root /home/ubuntu/myproject;
     }
 
     location / {
         include proxy_params;
-        proxy_pass http://unix:/home/sammy/myproject/myproject.sock;
+        proxy_pass http://unix:/home/ubuntu/myproject/myproject.sock;
     }
 }
 ```
@@ -114,15 +134,15 @@ sudo tail -F /var/log/nginx/error.log
 ```
 
 # Got error
-## connect() to unix:/home/sammy/myproject/myproject.sock failed (2: No such file or directory)
+## connect() to unix:/home/ubuntu/myproject/myproject.sock failed (2: No such file or directory)
 
 This indicates that Nginx was unable to find the myproject.sock file at the given location. You should compare the proxy_pass location defined within /etc/nginx/sites-available/myproject file to the actual location of the myproject.sock file generated in your project directory.
 
 If you cannot find a myproject.sock file within your project directory, it generally means that the gunicorn process was unable to create it. Go back to the section on checking for the Gunicorn socket file to step through the troubleshooting steps for Gunicorn.
 
-## connect() to unix:/home/sammy/myproject/myproject.sock failed (13: Permission denied)
+## connect() to unix:/home/ubuntu/myproject/myproject.sock failed (13: Permission denied)
 ```
-namei -nom /home/sammy/myproject/myproject.sock
+namei -nom /home/ubuntu/myproject/myproject.sock
 ```
 
 
