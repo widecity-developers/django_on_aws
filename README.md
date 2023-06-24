@@ -44,7 +44,7 @@ git clone https://github.com/account_name/repo
 ```
 ###### Install virtualenv, i hope use guys know why we need virtual env in python projects
 ```
-sudo -H pip3 install virtualenv
+sudo pip3 install virtualenv
 ```
 ###### Before we install our project’s Python requirements, we need to activate the virtual environment. You can do that by typing
 ```
