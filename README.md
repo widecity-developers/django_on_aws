@@ -56,11 +56,11 @@ sudo virtualenv envname
 ```
 source envname/bin/activate
 ```
-#### Install the requirements.txt using the comment
+###### Install the requirements.txt using the comment
 ```
 pip install -r requirements.txt
 ```
-With your virtual environment active, install Django, Gunicorn
+###### With your virtual environment active, install Django, Gunicorn
 ```
 pip install gunicorn
 ```
@@ -71,13 +71,13 @@ python3 manage.py runserver
 #### If any errors occur
 ###### Install the neccassary packages according to it and try to run the script again until it works. contact 9946658045 if you couldnt solve it.
 
-## Lets move forward, Create a Gunicorn systemd Service File
-Create and open a systemd service file for Gunicorn with sudo privileges in your text editor
+#### Lets move forward, Create a Gunicorn systemd Service File
+###### Create and open a systemd service file for Gunicorn with sudo privileges in your text editor
 ```
 sudo nano /etc/systemd/system/gunicorn.service
 ```
-Finally, we’ll add an [Install] section. This will tell systemd what to link this service to if we enable it to start at boot. We want this service to start when the regular multi-user system is up and running.
-Replace the path according to your project, it is not hard as it seems. just go through it. you will find it simple.
+###### Finally, we’ll add an [Install] section. This will tell systemd what to link this service to if we enable it to start at boot. We want this service to start when the regular multi-user system is up and running.
+###### Replace the path according to your project, it is not hard as it seems. just go through it. you will find it simple.
 
 ```
 [Unit]
@@ -93,24 +93,24 @@ ExecStart=/home/ubuntu/myproject/myprojectenv/bin/gunicorn --access-logfile - --
 [Install]
 WantedBy=multi-user.target
 ```
-We can now start the Gunicorn service we created and enable it so that it starts at boot
+###### We can now start the Gunicorn service we created and enable it so that it starts at boot
 
 ```
 sudo systemctl start gunicorn
 sudo systemctl enable gunicorn
 ```
-## Check for the Gunicorn Socket File
+#### Check for the Gunicorn Socket File
 ```
 sudo systemctl status gunicorn
 ```
 ## Configure Nginx to Proxy Pass to Gunicorn
-Start by creating and opening a new server block in Nginx’s sites-available directory
+###### Start by creating and opening a new server block in Nginx’s sites-available directory
 
 ```
 sudo nano /etc/nginx/sites-available/myproject
 ```
 
-Finally, we’ll create a location / {} block to match all other requests. Inside of this location, we’ll include the standard proxy_params file included with the Nginx installation and then we will pass the traffic to the socket that our Gunicorn process created
+###### Finally, we’ll create a location / {} block to match all other requests. Inside of this location, we’ll include the standard proxy_params file included with the Nginx installation and then we will pass the traffic to the socket that our Gunicorn process created
 
 ```
 server {
@@ -128,16 +128,16 @@ server {
     }
 }
 ```
-Save and close the file when you are finished. Now, we can enable the file by linking it to the sites-enabled directory
+###### Save and close the file when you are finished. Now, we can enable the file by linking it to the sites-enabled directory
 
 ```
 sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled
 ```
-Test your Nginx configuration for syntax errors by typing
+###### Test your Nginx configuration for syntax errors by typing
 ```
 sudo nginx -t
 ```
-If no errors are reported, go ahead and restart Nginx by typing
+###### If no errors are reported, go ahead and restart Nginx by typing
 
 ```
 sudo systemctl restart nginx
@@ -151,9 +151,9 @@ sudo tail -F /var/log/nginx/error.log
 # Got error
 ## connect() to unix:/home/ubuntu/myproject/myproject.sock failed (2: No such file or directory)
 
-This indicates that Nginx was unable to find the myproject.sock file at the given location. You should compare the proxy_pass location defined within /etc/nginx/sites-available/myproject file to the actual location of the myproject.sock file generated in your project directory.
+###### This indicates that Nginx was unable to find the myproject.sock file at the given location. You should compare the proxy_pass location defined within /etc/nginx/sites-available/myproject file to the actual location of the myproject.sock file generated in your project directory.
 
-If you cannot find a myproject.sock file within your project directory, it generally means that the gunicorn process was unable to create it. Go back to the section on checking for the Gunicorn socket file to step through the troubleshooting steps for Gunicorn.
+###### If you cannot find a myproject.sock file within your project directory, it generally means that the gunicorn process was unable to create it. Go back to the section on checking for the Gunicorn socket file to step through the troubleshooting steps for Gunicorn.
 
 ## connect() to unix:/home/ubuntu/myproject/myproject.sock failed (13: Permission denied)
 ```
