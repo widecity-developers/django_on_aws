@@ -14,9 +14,9 @@
 ```
 sudo apt-get update
 ```
-###### Now install the necessary packages, use python3 if you are using it. Its very easy. 
+###### Now install the necessary packages, use python if you are using it. Its very easy. 
 ```
-sudo apt-get install python-pip python-dev libpq-dev nginx
+sudo apt-get install python3-pip python3-dev libpq-dev nginx
 ```
 ###### For Making it interest while doing lets see how your nginx webserver looks like. For that type
 ```
