@@ -42,13 +42,18 @@ pip freeze > requirement.txt
 ```
 git clone https://github.com/account_name/repo
 ```
-###### Install virtualenv, i hope use guys know why we need virtual env in python projects
+###### Install virtualenv, i hope use guys know why we need virtual env in python projects, please follow if you don't have it.
 ```
 sudo pip3 install virtualenv
 ```
+###### Create the environment 
+```
+sudo virtualenv envname
+```
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 ###### Before we install our project’s Python requirements, we need to activate the virtual environment. You can do that by typing
 ```
-source myprojectenv/bin/activate
+source envname/bin/activate
 ```
 #### Install the requirements.txt using the comment
 ```
