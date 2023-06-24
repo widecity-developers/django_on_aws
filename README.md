@@ -5,6 +5,7 @@
 ![Alt text](https://www.projecthosts.com/wp-content/uploads/2022/10/AWS_Header-1-1024x429.png)
 
 #### First get your ec2 ready to start, then go with the below procedure if you have any dought please contact at 9946658045
+![Alt text]([https://www.projecthosts.com/wp-content/uploads/2022/10/AWS_Header-1-1024x429.png](https://qph.cf2.quoracdn.net/main-qimg-8bf847f4e53c1910b341fa21d70b0299-lq))
 
 #### Install the Packages from the Ubuntu Repositories
 ###### To begin the process, we’ll download and install all of the items we need from the Ubuntu repositories. We will use the Python package manager pip to install additional components a bit later.
