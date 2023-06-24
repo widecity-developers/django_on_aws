@@ -34,7 +34,8 @@ sudo mkdir projectfolder_name
 cd projectfolder_name
 ```
 #####  lets get your github code to here. pretty cool right. 
-!important , make sure you have an requirements.txt file, which can make these process much faster. if you don't have that just go to your local project folder and type,
+#### !important
+###### make sure you have an requirements.txt file, which can make these process much faster. if you don't have that just go to your local project folder and type,
 ```
 pip freeze > requirement.txt
 ```
