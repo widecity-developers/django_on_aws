@@ -3,8 +3,8 @@
 ###### Django is a powerful web framework that can help you get your Python application or website off the ground. Django includes a simplified development server for testing your code locally, but for anything even slightly production related, a more secure and powerful web server is required.
 
 ![Alt text](https://www.projecthosts.com/wp-content/uploads/2022/10/AWS_Header-1-1024x429.png)
-
-#### First get your ec2 ready to start, then go with the below procedure if you have any dought please contact at 9946658045
+### Get your Instance Ready
+###### First get your ec2 ready to start, then go with the below procedure if you have any dought please contact at 9946658045
 ![Alt text](https://www.nakivo.com/blog/wp-content/uploads/2021/12/How-to-connect-to-EC2-instance-via-SSH-Linux-1.jpg)
 
 #### Install the Packages from the Ubuntu Repositories
