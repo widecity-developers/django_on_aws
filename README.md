@@ -7,7 +7,7 @@ Django is a powerful web framework that can help you get your Python application
 ## Install the Packages from the Ubuntu Repositories
 To begin the process, we’ll download and install all of the items we need from the Ubuntu repositories. We will use the Python package manager pip to install additional components a bit later.
 
-##### First get your ec2 ready to start, then go with the below procedure if you have any dought please contact at 9946658045
+###### First get your ec2 ready to start, then go with the below procedure if you have any dought please contact at 9946658045
 
 We need to update the local apt package first. 
 ```
